@@ -39,7 +39,17 @@ function initObstacles() {
 	//lane 3
 	for (let i = 0; i < 2; i++) {
 		let x = i * 400;
-		carsArray.push(new Obstacles(x, canvas.height - grid * 4 - 20, grid, grid, 4, 'car'));
+		carsArray.push(new Obstacles(x, canvas.height - grid * 4 - 20, grid*2, grid, 4, 'car'));
+	}
+	//lane 4
+	for (let i = 0; i < 2; i++) {
+		let x = i * 400;
+		carsArray.push(new Obstacles(x, canvas.height - grid * 5 - 20, grid*2, grid, -2, 'log'));
+	}
+	//lane 5
+	for (let i = 0; i < 2; i++) {
+		let x = i * 400;
+		carsArray.push(new Obstacles(x, canvas.height - grid * 6 - 20, grid, grid, 1, 'turtle'));
 	}
 }
 initObstacles();
@@ -48,4 +58,9 @@ function handleObstacles() {
 		carsArray[i].update();
 		carsArray[i].draw();
 	}
+	for (let i = 0; i < logsArray.length; i++) {
+		logsArray[i].update();
+		logsArray[i].draw();
+	}
+
 }
