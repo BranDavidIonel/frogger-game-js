@@ -67,12 +67,12 @@ function initObstacles() {
 	//lane 4
 	for (let i = 0; i < 2; i++) {
 		let x = i * 400;
-		carsArray.push(new Obstacles(x, canvas.height - grid * 5 - 20, grid*2, grid, -2, 'log'));
+		logsArray.push(new Obstacles(x, canvas.height - grid * 5 - 20, grid*2, grid, -2, 'log'));
 	}
 	//lane 5
 	for (let i = 0; i < 2; i++) {
 		let x = i * 400;
-		carsArray.push(new Obstacles(x, canvas.height - grid * 6 - 20, grid, grid, 1, 'turtle'));
+		logsArray.push(new Obstacles(x, canvas.height - grid * 6 - 20, grid, grid, 1, 'turtle'));
 	}
 }
 initObstacles();
@@ -93,7 +93,25 @@ function handleObstacles() {
 		}
 	}
 	//collision with logs/turtles
-	
+	if(frogger.y<250 && frogger.y>100){
+		safe=false;
+		for(let i=0;i<logsArray.length;i++){
+			if(collision(frogger,logsArray[i])){
+				frogger.x+=logsArray[i].speed;
+				safe=true;
+			}
+		}
+		if(!safe){
+			
+			for(let i=0;i<30;i++){
+				ripplesArray.unshift(new Particle(frogger.x,frogger.y));
+			}
+			resetGame();
+
+		}
+
+	}
+
 
 
 }
