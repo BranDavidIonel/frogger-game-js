@@ -35,6 +35,7 @@ window.addEventListener('keydown',function(e){
 window.addEventListener('keyup',function(e){
 	delete keys[e.keyCode];
 	frogger.moving=false;
+	frogger.frameX=0;
 });
 function scored(){
 	score++;

@@ -59,3 +59,6 @@ log.src='log.png';
 const car=new Image();
 car.src='cars.png';
 let numberOfCars=3;
+
+const froggerSprite=new Image();
+froggerSprite.src='frog_spritesheet.png';
