@@ -54,3 +54,19 @@ function handleScoreBoard(){
 	ctx4.strokeText('Game Speed:'+gameSpeed.toFixed(1),10,195);
 
 }
+//collesion detection between thw rectangles
+function collision(first,second){
+	//rectangles are not overlapping condition
+	return !(first.x>second.x+second.width ||
+			first.x+first.width<second.x ||
+			first.y>second.y+second.height||
+			first.y+first.height<second.y);
+}
+
+function resetGame(){
+	score=0;
+	gameSpeed=1;
+	frogger.x=canvas.width/2-frogger.width/2;
+	frogger.y=canvas.height-frogger.height-40;
+
+}

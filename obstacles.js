@@ -34,12 +34,12 @@ function initObstacles() {
 	//lane 2
 	for (let i = 0; i < 2; i++) {
 		let x = i * 300;
-		carsArray.push(new Obstacles(x, canvas.height - grid * 3 - 20, grid * 2, grid, -10, 'car'));
+		carsArray.push(new Obstacles(x, canvas.height - grid * 3 - 20, grid * 2, grid, -1, 'car'));
 	}
 	//lane 3
 	for (let i = 0; i < 2; i++) {
 		let x = i * 400;
-		carsArray.push(new Obstacles(x, canvas.height - grid * 4 - 20, grid*2, grid, 4, 'car'));
+		carsArray.push(new Obstacles(x, canvas.height - grid * 4 - 20, grid*2, grid, 1, 'car'));
 	}
 	//lane 4
 	for (let i = 0; i < 2; i++) {
@@ -62,5 +62,13 @@ function handleObstacles() {
 		logsArray[i].update();
 		logsArray[i].draw();
 	}
+	//collision with car
+	for (let i = 0; i < carsArray.length; i++) {
+		if(collision(frogger,carsArray[i])){
+			ctx4.drawImage(collisions,0,100,100,100,frogger.x,frogger.y,50,50);
+			resetGame();
+		}
+	}
+
 
 }
