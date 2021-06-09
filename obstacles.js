@@ -6,10 +6,25 @@ class Obstacles {
 		this.height = height;
 		this.speed = speed;
 		this.type = type;
+		this.frameX=0;
+		this.frameY=0;
+		this.randomize=Math.floor(Math.random()*30*30);
 	}
 	draw() {
-		ctx3.fillStyle = 'pink';
-		ctx3.fillRect(this.x, this.y, this.width, this.height);
+		if(this.type==='turtle'){
+			if(frame % this.randomize === 0){
+				if(this.frameX>=1) this.frameX=0;
+				else{
+					this.frameX++;
+				}
+			//ctx1.fillRect(this.x, this.y, this.width, this.height);
+			ctx1.drawImage(turtle,this.frameX*70,this.frameY*70,70,70,this.x,this.y,this.width,this.height);
+			}
+		}else if(this.type==='log'){
+			ctx1.drawImage(log,this.x,this.y,this.width,this.height);
+		}
+		//ctx3.fillStyle = 'pink';
+		//ctx3.fillRect(this.x, this.y, this.width, this.height);
 	}
 	update() {
 		this.x += this.speed * gameSpeed;

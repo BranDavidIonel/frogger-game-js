@@ -15,6 +15,7 @@ function animate(){
 	handleObstacles();
 	ctx4.drawImage(grass,0,0,canvas.width,canvas.height);
 	handleScoreBoard();
+	frame++;
 	requestAnimationFrame(animate);
 	
 	

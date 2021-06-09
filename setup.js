@@ -48,3 +48,13 @@ grass.src='grass.png';
 
 const collisions=new Image();
 collisions.src='collisions.png';
+
+const turtle=new Image();
+turtle.src='turtles.png';
+
+const log=new Image();
+log.src='log.png';
+
+const car=new Image();
+car.src='cars.png';
+let numberOfCars=30;
