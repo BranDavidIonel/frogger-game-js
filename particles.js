@@ -59,8 +59,11 @@ function handleParticles(){
 
         }
 	}
-    //water ripples
-    for(let i=0;i<ripplesArray.length;i++){
+  
+}
+function handleRipples(){
+      //water ripples
+      for(let i=0;i<ripplesArray.length;i++){
         ripplesArray[i].ripple();
         ripplesArray[i].drawRipple();
 
@@ -76,5 +79,4 @@ function handleParticles(){
             ripplesArray.unshift(new Particle(frogger.x,frogger.y));
         }
     }
-
 }
