@@ -57,4 +57,4 @@ log.src='log.png';
 
 const car=new Image();
 car.src='cars.png';
-let numberOfCars=30;
+let numberOfCars=3;

@@ -9,6 +9,7 @@ class Obstacles {
 		this.frameX=0;
 		this.frameY=0;
 		this.randomize=Math.floor(Math.random()*30*30);
+		this.carType=(Math.floor(Math.random()*numberOfCars));
 	}
 	draw() {
 		if(this.type==='turtle'){
@@ -22,6 +23,9 @@ class Obstacles {
 			}
 		}else if(this.type==='log'){
 			ctx1.drawImage(log,this.x,this.y,this.width,this.height);
+		}else{
+			//ctx2.fillRect(this.x,this.y,this.width,this.height);
+			ctx2.drawImage(car,this.frameX*this.width,this.carType*this.height,grid*2,grid,this.x,this.y,this.width,this.height);
 		}
 		//ctx3.fillStyle = 'pink';
 		//ctx3.fillRect(this.x, this.y, this.width, this.height);
@@ -29,12 +33,16 @@ class Obstacles {
 	update() {
 		this.x += this.speed * gameSpeed;
 		if (this.speed > 0) {
+			
 			if (this.x > canvas.width + this.width) {
 				this.x = 0 - this.width;
+				(Math.floor(Math.random()*numberOfCars));
 			}
 		}else{
+			this.frameX=1;
 			if(this.x<0-this.width){
 				this.x=canvas.width+this.width;
+				(Math.floor(Math.random()*numberOfCars));
 			}
 		}
 
@@ -84,6 +92,8 @@ function handleObstacles() {
 			resetGame();
 		}
 	}
+	//collision with logs/turtles
+	
 
 
 }
